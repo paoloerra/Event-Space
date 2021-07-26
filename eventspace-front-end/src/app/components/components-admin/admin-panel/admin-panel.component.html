@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="text-center">
+        <h1 class="p-2">CONTROL PANEL</h1>
+
+          <nav class="ml-5 mr-5">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <!-- <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fa fa-globe" aria-hidden="true"></i> Add Event</a> -->
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fa fa-futbol-o" aria-hidden="true"></i> List Event</a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fa fa-music" aria-hidden="true"></i> List User</a>
+            </div>
+          </nav>
+
+          <div class="tab-content" id="nav-tabContent">
+            <!-- <div [ngClass]="{'active': activeTab === 'form_event', 'show': activeTab === 'form_event'}" class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><app-add-event></app-add-event></div> -->
+            <div [ngClass]="{'active': activeTab === 'list_event', 'show': activeTab === 'list_event'}" class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><app-list-event></app-list-event></div>
+            <div [ngClass]="{'active': activeTab === 'list_user', 'show': activeTab === 'list_user'}" class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><app-list-user></app-list-user></div>
+          </div>
+    </div>
+</div>

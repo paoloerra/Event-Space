@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="row">
+      <div class="col-lg-7 col-md-7 col-sm-12 banner">
+        <h1 style="text-align: left; font-size: 30px; color: white">PARTECIPA A FANTASTICI EVENTI!</h1>
+        <h6 style="text-align: left; padding-right: 50px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has. printing and typesetting industry. Lorem Ipsum has. ng and typesetting industry. Lorem Ipsum has. ng and typesetting industry. Lorem Ipsum has.</h6>
+        <button routerLink="/register" class="btn btn-outline-light p-3 mt-5">Registrati</button>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 m-5">
+        <h1>Login</h1>
+        <form>
+          <div class="form-group">
+            <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+  
+            <label for="exampleInputEmail1">Username:</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" placeholder="Inserisci il tuo username">  
+           </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password:</label>
+            <input type="password" class="form-control" [(ngModel)]="password" id="password" name="password" placeholder="Inserisci la tua password">        
+          </div>
+          <button class="button2 btn btn-outline-light" (click)="login()">Entra</button>
+          </form>      
+      </div>
+    </div>
+</div>

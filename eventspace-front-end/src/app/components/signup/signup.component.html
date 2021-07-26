@@ -1,0 +1,53 @@
+<div class="card">
+    <h1>REGISTRATI</h1>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Username:</label>
+        <input type="text" class="form-control"  formControlName="username" name="username" placeholder="Inserisci il tuo username" >
+        <small id="usernameHelp" class="form-text text-muted">Il tuo username verrà utilizzato per il login</small>
+
+      </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email:</label>
+            <input type="email" class="form-control" name="email" placeholder="Inserisci l'email"  formControlName="email" > 
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password:</label>
+          <input type="password" class="form-control" name="password" placeholder="Inserisci la password"  formControlName="password">
+        </div>
+        <button type="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" >Registrati</button>
+
+        <p class="form-text text-muted">Hai già un account? <a routerLink="">Effettua il login.</a></p>
+
+
+        <!-- <p><b>JSON: </b>{{userForm.value | json}}</p> -->
+      </form>
+
+
+    <!-- Modal 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Controlla i tuoi dati prima di confermare la registrazione!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p><b>Username: </b>{{user.username}}</p>
+            <p><b>Nome: </b>{{user.name}}</p>
+            <p><b>Cognome: </b>{{user.surname}}</p>
+            <p><b>Email: </b>{{user.email}}</p>
+            <p><b>Password: </b>{{user.password}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Registrati</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+</div>

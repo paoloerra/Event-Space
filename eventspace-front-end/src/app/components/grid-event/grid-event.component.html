@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row m-2">
+        <input class="form-control mr-sm-2 search m-4" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Cerca il tuo evento">
+        <div class="col col-sm-12 col-lg-4 col-md-6 col-12 p-2" *ngFor="let e of eventi | filterEvent: 'category':categoria | filter:searchText">
+            <div class="card">
+                <img [src]="e.img_url" width="100%" class="image-shadow">   
+                <div class="card-body">
+                    <p class="text-left h5"><b>{{e.name}}</b></p>
+                    <p style="font-weight: 500;" class="text-left">{{e.description}}</p>
+                    <p class="text-left"><b>Luogo: </b>{{e.location}}</p>
+                    <p class="text-left"><b>Data: </b>{{e.data | date:"dd/MM/yy"}}</p>
+                    <p class="text-left"><b>Ora: </b>{{e.time}}</p>
+                    <hr>
+                    <div class="text-right">
+                        <i class="fa fa-comment-o fa-2x p-1" aria-hidden="true"></i>
+                        <i class="fa fa-heart-o fa-2x p-1" aria-hidden="true"></i>
+                        <i (click)="addEventList(e.id)" class="fa fa-plus fa-2x p-1" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>   
+        </div> 
+    </div>
+  </div>

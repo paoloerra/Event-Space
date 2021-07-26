@@ -1,0 +1,23 @@
+
+<h4 style="text-align: left" class="pl-5 pt-4 pb-4"> Lista Utenti</h4>
+<div class="container-fluid pl-5 pr-5">
+    <table class="table">
+        <thead style="background-color: #3d3d3d; color: white;">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">password</th>
+        </tr>
+        </thead>
+
+        <tbody *ngFor="let user of users, let i = index">
+        <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

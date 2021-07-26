@@ -1,0 +1,27 @@
+<div class="card">
+    <h1 class="text-center">I TUOI EVENTI</h1>
+    <ul class="list-group list-group-flush mt-4 mb-4">
+        <div class="fluid-container">
+            <li class="list-group-item" *ngFor="let event of list">
+                <div class="row">
+                    <div class="col col-lg-2 col-sm-12">
+                        <img [src]="event.img_url"  width="250px" class="image-shadow">   
+                    </div>
+                    <div class="col col-lg-9">
+                        <div class="w-75">
+                            <div class="card-body ml-4">
+                                <h5 class="card-title">{{event.name}}</h5>
+                                <p style="text-align: left;" class="card-text">{{event.description}}</p>
+                                <p>
+                                    <b>Luogo: </b> {{event.location}} <br>
+                                    <b>Data: </b> {{event.data | date:"dd/MM/yy"}} <br>
+                                    <b>Ora: </b> {{event.time}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>     
+        </div>
+      </ul>
+</div>

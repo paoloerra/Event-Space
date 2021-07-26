@@ -1,0 +1,15 @@
+<nav class="navbar justify-content-between navbar-dark">
+    <a class="navbar-brand logo"><i class="fa fa-ravelry" aria-hidden="true"></i>Event<b>Space</b></a>
+        <div *ngIf="isLoggedIn"> 
+          <i routerLink="/list-favorite-event" class="fa fa-heart-o fa-2x p-3 nav-item " aria-hidden="true"></i>
+          <i class="dropdown show">
+            <i class="fa fa-user fa-2x p-3 nav-item dropdown show " aria-hidden="true" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>  
+            <div class="dropdown-menu dropdown-left-manual" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-item"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <b> Utente: </b>{{username}}</div>
+              <a class="dropdown-item" routerLink="/homepage"><i class="fa fa-home" aria-hidden="true"></i> Home page</a>
+              <a *ngIf="userType == '1'" routerLink="/adminpanel" class="dropdown-item"><i class="fa fa-cog" aria-hidden="true"></i> Pannello di controllo</a>
+              <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out fa-1x nav-item " aria-hidden="true"></i> Esci</a>
+            </div>
+          </i>
+        </div>
+  </nav>

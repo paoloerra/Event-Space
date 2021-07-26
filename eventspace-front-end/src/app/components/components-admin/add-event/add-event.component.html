@@ -1,0 +1,50 @@
+<h4 *ngIf="type == 'Inserisci'" style="text-align: left" class="pl-5 pt-4 pb-4">Inserisci un nuovo evento</h4>
+<h4 *ngIf="type == 'Modifica'" style="text-align: left" class="pl-5 pt-4 pb-4">Modifica l'evento selezionato</h4>
+<form [formGroup]="eventForm" (ngSubmit)="addEvent()" style="text-align: left;" class="pl-5 pr-5 pb-5">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nome evento:</label>
+      <input type="text" class="form-control" formControlName="name" name="name" placeholder="Inserisci il nome dell'evento" [ngModel]="event.name">
+    </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Luogo:</label>
+        <input type="text" class="form-control"  formControlName="location" name="location" placeholder="Inserisci il luogo dell'evento" [ngModel]="event.location">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Categoria:</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" id="inputGroupSelect02" formControlName="category" required [ngModel]="event.category">
+              <option selected>Scegli la categoria..</option>
+              <option value="Sport">Sport</option>
+              <option value="Music">Musica</option>
+              <option value="Teatro">Teatro</option>
+            </select>
+          </div>      
+        </div>
+
+      <div class="form-group">
+          <label for="exampleInputEmail1">Descrizione:</label>
+          <input type="text" class="form-control"  formControlName="location" name="location" placeholder="Inserisci la descrizione" [ngModel]="event.description">
+        </div>
+
+      <div class="form-group">
+          <label for="exampleInputEmail1">Data:</label>
+          <input type="date" class="form-control" name="email" formControlName="data" required [ngModel]="event.data"> 
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Ora:</label>
+        <input type="time" class="form-control" name="data" formControlName="time" required [ngModel]="event.time">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Immagine:</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" formControlName="img_url">
+            <label class="custom-file-label" for="customFile">Scegli file</label>
+          </div>      
+        </div>
+        <button type="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-dark" >{{type}}</button>
+      <!-- <p><b>JSON: </b>{{userForm.value | json}}</p> -->
+    </form>
