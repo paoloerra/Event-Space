@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,17 +18,26 @@ export class SignupComponent implements OnInit {
   router: Router;
   successMessage!: string;
 
+  @Input()
+  type = "";
+
 
   constructor(private signUp:SignupService, router: Router,private formBuilder: FormBuilder, private toastr: ToastrService) { 
     this.router = router;
   }
- ngOnInit(){
-  this.userForm = this.formBuilder.group({
-    username: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
-  });
- }
+
+  ngOnInit(){
+    this.userForm = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
+    });
+  }
+
+  ngOnChanges() {
+    console.log(this.type);
+  }
+
 
   onSubmit() {
     console.log(Md5.hashStr(this.userForm.value.password));

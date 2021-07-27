@@ -10,11 +10,21 @@ import { ListUserService } from './list-user.service';
 export class ListUserComponent implements OnInit {
   users!: User[];
 
+  type = "";
+  user!: User;
+
   constructor(private service: ListUserService) {
     this.getAllUsers();
   }
 
   ngOnInit(): void {
+  }
+
+
+  updateUser(index: number) {
+    this.type = "Modifica";
+    this.user = this.users[index];
+    console.log(this.type);
   }
 
   getAllUsers() {

@@ -1,28 +1,24 @@
-<div class="card">
-    <div class="text-center">
-        <!--Carousel-->
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100 rounded pl-5 pr-5" style="padding-top:20px; " src="assets/images/event2.png" alt="First slide">
-              </div>
-            </div>
+<div class="text-center">
+    <!--Carousel-->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 rounded" style="padding-top:20px; " src="assets/images/event2.png" alt="First slide">
           </div>
-        <!--End Carousel-->
-
-        <br>
-        <nav class="ml-5 mr-5">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" (click)="changeCategory('All')"><i class="fa fa-globe" aria-hidden="true"></i> All</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" (click)="changeCategory('Sport')"><i class="fa fa-futbol-o" aria-hidden="true"></i> Sport</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false" (click)="changeCategory('Music')"><i class="fa fa-music" aria-hidden="true"></i> Music</a>
-            </div>
-          </nav>
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><app-grid-event [categoria]="categoria"></app-grid-event></div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><app-grid-event [categoria]="categoria"></app-grid-event></div>
-            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><app-grid-event [categoria]="categoria"></app-grid-event></div>
-          </div>
-    </div>
-
+        </div>
+      </div>
+    <!--End Carousel-->
+    <br>
+    <nav class="ml-1 mr-1">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" (click)="changeCategory('All')"><i class="fa fa-globe" aria-hidden="true"></i> All</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false" (click)="changeCategory('Sport')"><i class="fa fa-futbol-o" aria-hidden="true"></i> Sport</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false" (click)="changeCategory('Music')"><i class="fa fa-music" aria-hidden="true"></i> Music</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><app-grid-event [categoria]="categoria"></app-grid-event></div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><app-grid-event [categoria]="categoria"></app-grid-event></div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"><app-grid-event [categoria]="categoria"></app-grid-event></div>
+      </div>
 </div>

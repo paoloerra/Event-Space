@@ -1,13 +1,14 @@
 
-<h4 style="text-align: left" class="pl-5 pt-4 pb-4"> Lista Utenti</h4>
-<div class="container-fluid pl-5 pr-5">
+<h4 style="text-align: left" class="pt-4 pb-4"> Lista Utenti</h4>
+<div class="container-fluid">
     <table class="table">
         <thead style="background-color: #3d3d3d; color: white;">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Username</th>
             <th scope="col">Email</th>
-            <th scope="col">password</th>
+            <th scope="col" class="d-none d-sm-block">password</th>
+            <th scope="col">Edit</th>
         </tr>
         </thead>
 
@@ -16,8 +17,27 @@
             <th scope="row">{{i+1}}</th>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.password}}</td>
+            <td class="d-none d-sm-block">{{user.password}}</td>
+            <td><i class="fa fa-trash fa-1x" aria-hidden="true"></i> - <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#modal_user" (click)="updateUser(i)"></i></td>
         </tr>
         </tbody>
     </table>
+
+    <div class="modal fade" id="modal_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-lg modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Gestisci utenti</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-left p-4">
+                <app-signup [type]=type></app-signup>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
 </div>

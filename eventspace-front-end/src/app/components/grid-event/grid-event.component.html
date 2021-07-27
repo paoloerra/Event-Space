@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <div class="row m-2">
-        <input class="form-control mr-sm-2 search m-4" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Cerca il tuo evento">
+    <div class="row">
+        <input class="form-control search m-1 mt-3" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; Cerca il tuo evento">
         <div class="col col-sm-12 col-lg-4 col-md-6 col-12 p-2" *ngFor="let e of eventi | filterEvent: 'category':categoria | filter:searchText">
             <div class="card">
                 <img [src]="e.img_url" width="100%" class="image-shadow">   
