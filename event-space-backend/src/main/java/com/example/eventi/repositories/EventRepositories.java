@@ -2,6 +2,7 @@ package com.example.eventi.repositories;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.eventi.entites.Event;
 import com.example.eventi.entites.User;
 @Repository
-public interface EventRepositories extends CrudRepository<Event, Long> {
+public interface EventRepositories extends JpaRepository<Event, Long> {
 	
 	@Query(value= "SELECT * FROM Event e Join event_like le on le.evento_id=e.event_id join user u on le.user_id=u.id", nativeQuery = true)
 	public List<Event> getEventUser();

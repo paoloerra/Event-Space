@@ -19,5 +19,8 @@ public interface UserRepositories extends CrudRepository<User, Long>{
 	@Query(value= "INSERT INTO event_like (user_id, evento_id) VALUES (?1, ?2);", nativeQuery = true)
     public void insertLikeEvents(@Param("user_id")int userid, @Param("evento_id") int eventid);
 	
+	@Query(value = "SELECT * FROM USER WHERE id = ?1", nativeQuery = true)
+	public User getUserById(@Param("id")int userid);
+	
 
 }
