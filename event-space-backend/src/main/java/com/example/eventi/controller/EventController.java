@@ -3,10 +3,13 @@ package com.example.eventi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +21,11 @@ import com.example.eventi.repositories.EventRepositories;
 @RestController
 @RequestMapping("/event")
 @CrossOrigin(origins = "*")
+
 public class EventController {
+	
+	@Value("${upload.path}")
+	private String uploadPath;
 
 	@Autowired
 	private EventRepositories eventRepositories;
@@ -34,13 +41,10 @@ public class EventController {
 	
 	@PostMapping("/saveEvent")
 	public void addEvent(@RequestBody Event event) {
+		event.setImg_url("assets/images/" + event.getImg_name());
+		System.out.println(event);
 		eventRepositories.save(event);
 	}
-	
-	/*@PostMapping("/updateEvent")
-	public void updateEvent(@RequestBody Event event) {
-		eventRepositories.put(event);
-	}*/
 	
 	@GetMapping("/getEventUser")
 	public List<Event> getEventUser(){
@@ -50,7 +54,6 @@ public class EventController {
 	
 	@GetMapping(value = "/getEventList/{id}")
 	public List<Event> getEventPrefer(@PathVariable long id){
-		System.out.print("sono quaaaaa2");
 		return (List<Event>) eventRepositories.getEventCar(id);
 		
 	}
@@ -67,9 +70,21 @@ public class EventController {
 		
 	}
 	
-	
 	@GetMapping("/findEventWithPartOf")
 	public List<Event> findEventWithPartOf(@RequestBody String name, @RequestBody String description, @RequestBody String category, @RequestBody String location){
 		return (List<Event>) eventRepositories.findEventWithPartOf(name, description, category, location);
 	}
+	
+	@DeleteMapping(value ="/deleteEvent/{id}")
+	public List<Event> deleteEvent(@PathVariable long id) {
+		eventRepositories.deleteById(id);
+		return (List<Event>) eventRepositories.findAll();
+	}
+	
+	@PutMapping("/updateEvent")
+	public void updateEvent(@RequestBody Event event) {
+		System.out.println("Sto modificando l'evento");
+		eventRepositories.save(event);
+	}
+	
 }

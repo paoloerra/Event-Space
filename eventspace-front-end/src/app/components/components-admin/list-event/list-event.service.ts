@@ -15,4 +15,9 @@ export class ListEventService {
     return this.http.get<Event[]>(this.url+"/getEvents"); 
   }
 
+  deleteEvent(id: number) : any {
+    const header = {​​​'content-type' : 'application/json'}​​​
+    console.log(`${this.url}/deleteEvent/${id}`​​​);
+    return this.http.delete(`${this.url}/deleteEvent/${id}`​​​);
+  }
 }

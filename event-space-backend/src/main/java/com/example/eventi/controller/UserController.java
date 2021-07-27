@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,8 +57,18 @@ public class UserController {
 	
 	@PostMapping("/addEventLike")
 	public void addEventLike(@RequestBody Event_like e) {
-		System.out.println("12121221121221");
 		userRepository.insertLikeEvents(e.getUser_id(), e.getEvent_id());
+	}
+	
+	@PutMapping("/updateUser")
+	public void updateUser(@RequestBody User user) {
+		userRepository.save(user);
+	}
+	
+	@DeleteMapping(value="/deleteUser/{id}")
+	public List<User> deleteEvent(@PathVariable long id) {
+		userRepository.deleteById(id);
+		return (List<User>) userRepository.findAll();
 	}
 }
 

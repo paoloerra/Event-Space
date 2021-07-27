@@ -19,4 +19,8 @@ export class Event {
     this.location = location;
     this.category = category;
   }
+
+  setImage(image : string): void {
+    this.img_url = image;
+  }
 }

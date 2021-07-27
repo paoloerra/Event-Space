@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Event } from 'src/app/model/event';
 import { AdminPanelService } from '../admin-panel.service';
 import { ListEventService } from './list-event.service';
@@ -15,7 +16,7 @@ export class ListEventComponent implements OnInit {
 
   event!: any;
 
-  constructor(private service: ListEventService, private panelService: AdminPanelService) {
+  constructor(private service: ListEventService, private panelService: AdminPanelService, private toastr: ToastrService) {
     this.getAllEvents();
    }
 
@@ -39,6 +40,19 @@ export class ListEventComponent implements OnInit {
     //console.log(index);
     this.event = this.events[index];
     //console.log(this.events[index]);
+  }
+
+  deleteEvent(id: number) {
+    const onSuccess = (response: any) => {​​​
+      console.log("Evento cancellato con successo", response);
+      this.toastr.success('Operazione effettuata', 'Evento cancellato correttamente');
+    } ​​​
+    const onError = (response: any) => {​​​
+      console.log("Errore", response);
+      this.toastr.error('Errore', 'Cancellazione non andata a buon fine');
+    }​​​
+    console.log(id);
+    this.service.deleteEvent(id).subscribe(onSuccess, onError);
   }
 
   addEvent() {

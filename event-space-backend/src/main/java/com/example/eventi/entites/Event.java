@@ -3,6 +3,7 @@ package com.example.eventi.entites;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,14 +23,16 @@ public class Event {
 	private String location;
 	private String category;
 	
+	private String img_name;
+	
 
-	@ManyToMany(mappedBy = "likedEvents")
+	@ManyToMany(mappedBy = "likedEvents", cascade = CascadeType.REMOVE)
 	Set<User> likesUser;
-	@ManyToMany(mappedBy = "preferEvents")
+	@ManyToMany(mappedBy = "preferEvents", cascade = CascadeType.REMOVE)
 	Set<User> preferUser;
 
 	public Event(String name, Date data, String description, String img_url, String time, String location,
-			String category) {
+			String category, String img_name) {
 	
 		this.name = name;
 		this.data = data;
@@ -38,11 +41,24 @@ public class Event {
 		this.time = time;
 		this.location = location;
 		this.category = category;
+		this.img_name = img_name;
 	}
 	public Event() {}
 
 
 
+	public int getEvent_id() {
+		return event_id;
+	}
+	public void setEvent_id(int event_id) {
+		this.event_id = event_id;
+	}
+	public String getImg_name() {
+		return img_name;
+	}
+	public void setImg_name(String img_name) {
+		this.img_name = img_name;
+	}
 	public int getId() {
 		return event_id;
 	}
@@ -107,7 +123,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "Event [id=" + event_id + ", name=" + name + ", data=" + data + ", description=" + description + ", img_url="
-				+ img_url + ", time=" + time + ", location=" + location + ", category=" + category + "]";
+				+ img_url + ", time=" + time + ", location=" + location + ", category=" + category + ", img_name="+ img_name +"]";
 	}
 	
 }

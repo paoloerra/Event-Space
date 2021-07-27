@@ -38,10 +38,10 @@ public class ProgettoEventiApplication {
 			
 			Date date=new Date();
 	        //long miliseconds = System.currentTimeMillis();
-			Event event1=new Event("Evento1",date,"Evento1 descrizione evento", "assets/images/event1.jpg","15:00","Napoli,piazza plebiscito","Sport");
-			Event event2=new Event("Evento2",date,"Evento2"+ "  descrizione evento", "assets/images/event_3.jpg","16:00","Salerno","Sport");
-			Event event3=new Event("Evento3",date,"Evento3"+ "  descrizione evento", "assets/images/event_5.jpg","16:00","Avellino","Sport");
-			Event event4=new Event("Evento4",date,"Evento4"+ "  descrizione evento", "assets/images/event_4.jpg","16:00","Avellino","Music");
+			Event event1=new Event("Evento1",date,"Evento1 descrizione evento", "assets/images/event1.jpg","15:00","Napoli,piazza plebiscito","Sport", "");
+			Event event2=new Event("Evento2",date,"Evento2"+ "  descrizione evento", "assets/images/event_3.jpg","16:00","Salerno","Sport" , "");
+			Event event3=new Event("Evento3",date,"Evento3"+ "  descrizione evento", "assets/images/event_5.jpg","16:00","Avellino","Sport", "");
+			Event event4=new Event("Evento4",date,"Evento4"+ "  descrizione evento", "assets/images/event_4.jpg","16:00","Avellino","Music", "");
 			
 			e.save(event1);
 			e.save(event2);
