@@ -84,6 +84,7 @@ public class EventController {
 	@PutMapping("/updateEvent")
 	public void updateEvent(@RequestBody Event event) {
 		System.out.println("Sto modificando l'evento");
+		event.setImg_url("assets/images/" + event.getImg_name());
 		eventRepositories.save(event);
 	}
 	

@@ -46,6 +46,7 @@ export class ListEventComponent implements OnInit {
     const onSuccess = (response: any) => {​​​
       console.log("Evento cancellato con successo", response);
       this.toastr.success('Operazione effettuata', 'Evento cancellato correttamente');
+      this.getAllEvents();
     } ​​​
     const onError = (response: any) => {​​​
       console.log("Errore", response);

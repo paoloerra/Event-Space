@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
 public class Event {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int event_id;
+	private long event_id;
 	private String name;
 	private Date data;
 	private String description;
@@ -47,7 +47,7 @@ public class Event {
 
 
 
-	public int getEvent_id() {
+	public long getEvent_id() {
 		return event_id;
 	}
 	public void setEvent_id(int event_id) {
@@ -59,7 +59,7 @@ public class Event {
 	public void setImg_name(String img_name) {
 		this.img_name = img_name;
 	}
-	public int getId() {
+	public long getId() {
 		return event_id;
 	}
 	public void setId(int id) {

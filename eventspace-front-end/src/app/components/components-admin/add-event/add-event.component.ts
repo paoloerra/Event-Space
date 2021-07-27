@@ -82,7 +82,9 @@ export class AddEventComponent implements OnInit {​​​
       data: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       time: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       img_url: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-      img_name: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
+      img_name: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      id: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
+
     }​​​);
   }​​​
 }​​​
