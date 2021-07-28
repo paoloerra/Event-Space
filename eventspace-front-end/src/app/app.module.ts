@@ -20,6 +20,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ListFavoriteEventsComponent } from './components/list-favorite-events/list-favorite-events.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CookieComponent } from './cookie/cookie.component';
+import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
+
+const cookieConfig:NgcCookieConsentConfig = {
+  cookie: {
+    domain: 'localhost' // or 'your.domain.com' // it is mandatory to set a domain, for cookies to work properly (see https://goo.gl/S2Hy2A)
+  },
+  palette: {
+    popup: {
+      background: '#000'
+    },
+    button: {
+      background: '#f1d600'
+    }
+  },
+  theme: 'edgeless',
+  type: 'opt-out'
+};
 
 @NgModule({
   declarations: [
@@ -35,6 +53,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ListEventComponent,
     FilterEventPipe,
     ListFavoriteEventsComponent,
+    CookieComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +67,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
