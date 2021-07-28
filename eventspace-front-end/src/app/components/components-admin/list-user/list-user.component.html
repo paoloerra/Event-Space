@@ -7,7 +7,6 @@
             <th scope="col">#</th>
             <th scope="col">Username</th>
             <th scope="col">Email</th>
-            <th scope="col" class="d-none d-sm-block">password</th>
             <th scope="col">Edit</th>
         </tr>
         </thead>
@@ -17,8 +16,7 @@
             <th scope="row">{{i+1}}</th>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
-            <td class="d-none d-sm-block">{{user.password}}</td>
-            <td><i class="fa fa-trash fa-1x" aria-hidden="true"></i> - <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#modal_user" (click)="updateUser(i)"></i></td>
+            <td><i class="fa fa-trash fa-1x" aria-hidden="true" (click)="deleteUser(user.id)"></i> - <i class="fa fa-pencil" aria-hidden="true" data-toggle="modal" data-target="#modal_user" (click)="updateUser(i)"></i></td>
         </tr>
         </tbody>
     </table>
@@ -34,7 +32,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-left p-4">
-                <app-signup [type]=type></app-signup>
+                <app-signup [type]=type [user_edit]=user></app-signup>
                 </div>
             </div>
             </div>

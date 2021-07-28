@@ -1,24 +1,28 @@
-    <h1 class="text-center pb-3">REGISTRATI</h1>
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <h1 *ngIf="type == 'Registrati'" class="text-center pb-3">REGISTRATI</h1>
+    <h1 *ngIf="type == 'Modifica'" class="text-center pb-3">MODIFICA UTENTE</h1>
+
+    <form [formGroup]="userForm" (ngSubmit)="CU_user()">
       <div class="form-group">
         <label for="exampleInputEmail1">Username:</label>
-        <input type="text" class="form-control"  formControlName="username" name="username" placeholder="Inserisci il tuo username" >
-        <small id="usernameHelp" class="form-text text-muted">Il tuo username verrà utilizzato per il login</small>
+        <input type="text" class="form-control"  formControlName="username" name="username" placeholder="Inserisci il tuo username" [ngModel]="user_edit.username">
+        <small id="usernameHelp" class="form-text text-muted">L'username verrà utilizzato per il login</small>
 
       </div>
 
         <div class="form-group">
             <label for="exampleInputEmail1">Email:</label>
-            <input type="email" class="form-control" name="email" placeholder="Inserisci l'email"  formControlName="email" > 
+            <input type="email" class="form-control" name="email" placeholder="Inserisci l'email"  formControlName="email" [ngModel]="user_edit.email"> 
         </div>
 
-        <div class="form-group">
+        <div class="form-group" *ngIf="type == 'Registrati'">
           <label for="exampleInputPassword1">Password:</label>
           <input type="password" class="form-control" name="password" placeholder="Inserisci la password"  formControlName="password">
         </div>
-        <button type="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" >Registrati</button>
 
-        <p class="form-text text-muted">Hai già un account? <a routerLink="">Effettua il login.</a></p>
+        <button type="submit" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary" >{{type}}</button>
+        <input type="text" formControlName="id" [ngModel]="user_edit.id" hidden>
+
+        <p *ngIf="type == 'Registrati'" class="form-text text-muted">Hai già un account? <a routerLink="">Effettua il login.</a></p>
 
 
         <!-- <p><b>JSON: </b>{{userForm.value | json}}</p> -->

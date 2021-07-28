@@ -17,4 +17,10 @@ export class ListUserService {
     return this.http.get<User[]>(this.url+"/getUsers"); 
   }
 
+  deleteUser(id: number) : any {
+    const header = {​​​'content-type' : 'application/json'}​​​
+    console.log(`${this.url}/deleteUser/${id}`​​​);
+    return this.http.delete(`${this.url}/deleteUser/${id}`​​​);
+  }
+
 }

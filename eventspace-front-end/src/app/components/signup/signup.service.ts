@@ -22,6 +22,14 @@ export class SignupService {
     return this.http.post<User>(this.url + "/addusers", body, {'headers': header});
   }
 
+  //Update
+  updateUser(data: User): any {
+    const body = JSON.stringify(data);
+    const header = {'content-type' : 'application/json'}
+    console.log(this.url + "/updateUser");
+    return this.http.put(this.url + "/updateUser", body, {'headers': header});
+  }
+
   registerSuccessfulSignUp(username:string, id: number) {
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username);
     sessionStorage.setItem("id_user", id.toString())

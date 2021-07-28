@@ -19,8 +19,10 @@ export class SignupComponent implements OnInit {
   successMessage!: string;
 
   @Input()
-  type = "";
+  type = "Registrati";
 
+  @Input()
+  user_edit!: User;
 
   constructor(private signUp:SignupService, router: Router,private formBuilder: FormBuilder, private toastr: ToastrService) { 
     this.router = router;
@@ -30,12 +32,28 @@ export class SignupComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
+      password: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      id: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
+
     });
+
+    if(this.user_edit == null) {
+      this.user_edit = new User(0, "", "", "", 0);
+    }
+  }
+
+  CU_user() {
+    if(this.type == "Modifica") {
+      this.onUpdate();
+    }
+    else if(this.type == "Registrati") {
+      this.onSubmit();
+    }
   }
 
   ngOnChanges() {
     console.log(this.type);
+    console.log(this.user_edit);
   }
 
 
@@ -57,10 +75,20 @@ export class SignupComponent implements OnInit {
 
       }
       this.signUp.addUser(this.userForm.value).subscribe(onSuccess, onError);
-  
-  
   }
   
+  onUpdate() {
+    const onSuccess = (response: any) => {​​​
+      console.log("Utente aggiornato con successo", response);
+      this.toastr.success('Operazione effettuata', 'Utente aggiornato correttamente');
+    } ​​​
+    const onError = (response: any) => {​​​
+      console.log("Errore", response);
+      this.toastr.error('Errore', 'Aggiornamento non andato a buon fine');
+    }​​​
+    console.log(this.userForm.value);
+    this.signUp.updateUser(this.userForm.value).subscribe(onSuccess, onError);
+  }
 
 
 
