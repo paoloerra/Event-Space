@@ -34,7 +34,6 @@ export class SignupComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       id: ['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]]
-
     });
 
     if(this.user_edit == null) {
