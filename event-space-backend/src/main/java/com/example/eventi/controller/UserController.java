@@ -38,8 +38,8 @@ public class UserController {
 	
 	public UserController(UserRepositories userRepositories) {
 		this.userRepository=userRepositories;
-		
 	}
+	
 	@GetMapping("/getUsers")
 	public List<User> getUsers(){
 		return (List<User>)userRepository.findAll();
